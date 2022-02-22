@@ -3,6 +3,9 @@ on:
   push:
     branches:
       - main
+env:
+  DYNAMO_ARN: ${{secrets.DYNAMO_ARN}}
+
 jobs:
   deploy-master:
     runs-on: ubuntu-latest
