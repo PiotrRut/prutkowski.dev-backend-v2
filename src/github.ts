@@ -53,9 +53,14 @@ module.exports.getRepos = async () => {
     const data = await dynamoDb
       .scan({ TableName: String(process.env.DYNAMODB_TABLE) })
       .promise();
+
+    const reposSortedByDate = data?.Items?.sort(
+      (a, b) => new Date(b.created).getTime() - new Date(a.created).getTime()
+    );
+
     return {
       statusCode: 200,
-      body: JSON.stringify(data.Items),
+      body: JSON.stringify(reposSortedByDate),
     };
   } catch (error) {
     console.log(error);

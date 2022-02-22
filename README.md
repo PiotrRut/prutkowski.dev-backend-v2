@@ -1,4 +1,4 @@
-# api.prutkowski.dev
+# Backend for prutkowski.dev
 
 This repository holds the functions used to run backend for my personal website. The architecture is fully serverless, with lambda functions being exposed via public HTTP endpoints in API Gateway.
 
