@@ -21,6 +21,9 @@ jobs:
         # This keeps throwing an error in the runner for some reason, hopeing this will fix it
       - name: Install serverless-plugin-typescript
         run: serverless plugin install -n serverless-plugin-typescript
+        
+      - name: Install serverless-offline
+        run: serverless plugin install -n serverless-offline
 
       - name: Serverless AWS authentication
         run: sls config credentials --provider aws --key ${{ secrets.AWS_ACCESS_KEY_ID }} --secret ${{ secrets.AWS_SECRET_ACCESS_KEY }}
