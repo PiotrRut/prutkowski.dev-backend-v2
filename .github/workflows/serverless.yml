@@ -5,6 +5,7 @@ on:
       - main
 env:
   DYNAMO_ARN: ${{secrets.DYNAMO_ARN}}
+  SERVERLESS_ACCESS_KEY: ${{secrets.SERVERLESS_ACCESS_KEY}}
 
 jobs:
   deploy-master:
