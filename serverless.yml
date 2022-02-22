@@ -1,0 +1,41 @@
+org: piotrrut99
+app: prutkowski-backend-v2
+service: prutkowski-backend-v2
+frameworkVersion: "3"
+
+plugins:
+  - serverless-plugin-typescript
+  - serverless-offline
+
+useDotenv: true
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  region: eu-west-2
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:Query
+        - dynamodb:Scan
+        - dynamodb:GetItem
+        - dynamodb:PutItem
+        - dynamodb:UpdateItem
+        - dynamodb:DeleteItem
+      Resource: ${env:DYNAMO_ARN}
+
+functions:
+  getRepos:
+    handler: src/github.getRepos
+    events:
+      - httpApi:
+          path: /github/repos
+          method: get
+          response:
+            headers:
+              Content-Type: "'application/json'"
+
+  writeReposToDb:
+    handler: src/github.writeReposToDb
+    events:
+      - schedule: rate(3 hours)
