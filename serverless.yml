@@ -6,7 +6,6 @@ frameworkVersion: "3"
 plugins:
   - serverless-plugin-typescript
   - serverless-offline
-
 useDotenv: true
 
 provider:
