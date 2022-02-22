@@ -1,0 +1,14 @@
+{
+  "author": "Piotr Rutkowski",
+  "dependencies": {
+    "axios": "0.26.0",
+    "aws-sdk": "2.1079.0"
+  },
+  "devDependencies": {
+    "typescript": "4.5.5",
+    "@octokit/types": "6.34.0",
+    "serverless-plugin-typescript": "2.1.1",
+    "serverless-offline": "8.5.0",
+    "dotenv": "^16.0.0"
+  }
+}
