@@ -18,11 +18,14 @@ jobs:
 
       - name: Install Serverless Framework
         run: npm install -g serverless
-        
+
+      - name: Install node modules
+        run: npm install
+
         # This keeps throwing an error in the runner for some reason, hopeing this will fix it
       - name: Install serverless-plugin-typescript
         run: serverless plugin install -n serverless-plugin-typescript
-        
+
       - name: Install serverless-offline
         run: serverless plugin install -n serverless-offline
 
